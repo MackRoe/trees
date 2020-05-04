@@ -213,6 +213,14 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
+        # Step 1:
+        # is the node a leaf? if so, just delete it
+        # Step 2:
+        # if not a leaf, does node have two children? reset bothe edges to
+        #   connect to the node's parent, then delete it
+        # Step 3:
+        # node has one child. reset the edge of the child to connect to the
+        #   node's parent, delete the node
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
