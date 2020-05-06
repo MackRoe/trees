@@ -16,7 +16,8 @@ class BinaryTreeNode(object):
     def is_leaf(self):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
-        return ... and ...
+        if self.left == None and self.right == None
+        return True
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
@@ -168,7 +169,8 @@ class BinarySearchTree(object):
         # Loop until we descend past the closest leaf node
         while node is not None:
             # TODO: Check if the given item matches the node's data
-            if ...:
+            if node.data == item:
+                parent = node.parent
                 # Return the parent of the found node
                 return parent
             # TODO: Check if the given item is less than the node's data
@@ -214,7 +216,7 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
-        # Step 0: find the node -
+        # Step 0: find the node - [TODO]: COMPLETE THE HELPER FUNCTION
         # Step 1:
         # is the node a leaf? if so, just delete it
         # Step 2:
