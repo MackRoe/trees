@@ -34,11 +34,16 @@ class BinaryTreeNode(object):
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if left child has a value and if so calculate its height
-        ...
+        while self.left is not is_leaf():
+            left_height += 1
         # TODO: Check if right child has a value and if so calculate its height
-        ...
+        while self.right is not is_leaf():
+            right_height += 1
         # Return one more than the greater of the left height and right height
-        ...
+        if right_height >= left_height:
+            return right_height + 1
+        else:
+            return left_height + 1
 
 
 class BinarySearchTree(object):
