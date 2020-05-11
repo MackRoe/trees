@@ -237,8 +237,8 @@ class BinarySearchTree(object):
         # if not a leaf, does node have two children?
         elif self.left is not None and self.right is not None:
             #  reset both edges to connect to the node's parent,
-            self.parent.right = self.right
-            self.parent.left = self.left
+            parent.right = self.right
+            parent.left = self.left
             #  then delete it
             self.node.remove()
         # Step 3:
