@@ -269,10 +269,10 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse left subtree, if it exists
-        if self.left is not None:
+        if node is not None:
             # TODO: Visit this node's data with given function
             if is_leaf:
-                visit = self.node
+                visit(node.data)
             else:
                 _traverse_in_order_recursive(node.left, visit)
         # TODO: Traverse right subtree, if it exists
@@ -284,7 +284,9 @@ class BinarySearchTree(object):
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Traverse in-order without using recursion (stretch challenge)
+        # Optional TODO: Traverse in-order without using recursion
+        # (stretch challenge)
+        pass
 
     def items_pre_order(self):
         """Return a pre-order list of all items in this binary search tree."""
