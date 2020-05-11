@@ -234,11 +234,23 @@ class BinarySearchTree(object):
         if self.node is is_leaf:
             self.node.remove()
         # Step 2:
-        # if not a leaf, does node have two children? reset bothe edges to
-        #   connect to the node's parent, then delete it
+        # if not a leaf, does node have two children?
+        elif self.left is not None and self.right is not None:
+            #  reset both edges to connect to the node's parent,
+            self.parent.right = self.right
+            self.parent.left = self.left
+            #  then delete it
+            self.node.remove()
         # Step 3:
-        # node has one child. reset the edge of the child to connect to the
-        #   node's parent, delete the node
+        # if node has one child
+        else:
+            # reset the edge of the child to connect to the node's parent,
+            if self.left is not None:
+                self.parent.left = self.left
+            elif self.right is not None:
+                self.parent.left = self.right
+        # delete the node
+            self.node.remove()
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
