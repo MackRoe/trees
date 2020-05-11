@@ -246,9 +246,9 @@ class BinarySearchTree(object):
         else:
             # reset the edge of the child to connect to the node's parent,
             if self.left is not None:
-                self.parent.left = self.left
+                parent.left = self.left
             elif self.right is not None:
-                self.parent.left = self.right
+                parent.left = self.right
         # delete the node
             self.node.remove()
 
