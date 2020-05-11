@@ -213,13 +213,15 @@ class BinarySearchTree(object):
         # TODO: Check if the given item is less than the node's data
         elif item < node.data:
             # TODO: Recursively descend to the node's left child, if it exists
-            return _find_parent_node_recursive(item, node.left, parent=self.node)
-              # Hint: Remember to update the parent parameter
+            return _find_parent_node_recursive(
+                item, node.left, parent=self.node)
+            # Hint: Remember to update the parent parameter
         # TODO: Check if the given item is greater than the node's data
         elif item > node.data:
             # TODO: Recursively descend to the node's right child, if it exists
-            return _find_parent_node_recursive(item, node.right, parent=self.node)
-              # Hint: Remember to update the parent parameter
+            return _find_parent_node_recursive(
+                item, node.right, parent=self.node)
+            # Hint: Remember to update the parent parameter
 
     def delete(self, item):
         """Remove given item from this tree, if present, or raise ValueError.
@@ -267,11 +269,15 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse left subtree, if it exists
-        ...
-        # TODO: Visit this node's data with given function
-        ...
+        if self.left is not None:
+            # TODO: Visit this node's data with given function
+            if is_leaf:
+                visit = self.node
+            else:
+                _traverse_in_order_recursive(node.left, visit)
         # TODO: Traverse right subtree, if it exists
-        ...
+        else:
+            _traverse_in_order_recursive(node.right, visit)
 
     def _traverse_in_order_iterative(self, node, visit):
         """Traverse this binary tree with iterative in-order traversal (DFS).
