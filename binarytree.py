@@ -16,34 +16,28 @@ class BinaryTreeNode(object):
     def is_leaf(self):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
-        if self.left is None and self.right is None:
-            return True
-        else:
-            return False
+        return self.left is None and self.right is None
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
         # TODO: Check if either left child or right child has a value
-        if self.left is not is_leaf() or self.right is not is_leaf():
-            return True
-        else:
-            return False
+        return self.left is not None or self.right is not None
 
     def height(self):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if left child has a value and if so calculate its height
-        while self.left is not is_leaf():
-            left_height += 1
+        if self.is_leaf():
+            return 0
         # TODO: Check if right child has a value and if so calculate its height
-        while self.right is not is_leaf():
-            right_height += 1
+        if self.left is None:
+            return self.right.height() + 1
         # Return one more than the greater of the left height and right height
-        if right_height >= left_height:
-            return right_height + 1
+        elif self.right is None:
+            return self.left.height() + 1
         else:
-            return left_height + 1
+            return max(self.right.height(), self.left.height()) + 1
 
 
 class BinarySearchTree(object):
@@ -69,7 +63,9 @@ class BinarySearchTree(object):
         downward path from this tree's root node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if root node has a value and if so calculate its height
-        ...
+        # (*(*(())))
+        if self.root is not None:
+            self.root.height()
 
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
@@ -365,17 +361,19 @@ class BinarySearchTree(object):
         # TODO: Create queue to store nodes not yet traversed in level-order
         queue = Queue()
         # TODO: Enqueue given starting node
-        Queue.enqueue(start_node)
+        queue.enqueue(start_node)
         # TODO: Loop until queue is empty
-        while len(queue) != 0:
+        while not queue.is_empty():
             # TODO: Dequeue node at front of queue
-            node = Queue.dequeue()
+            node = queue.dequeue()
             # TODO: Visit this node's data with given function
-            ...
+            visit(node.data)
             # TODO: Enqueue this node's left child, if it exists
-            ...
+            if node.left is not None:
+                queue.enqueue(node.left)
             # TODO: Enqueue this node's right child, if it exists
-            ...
+            if node.right is not None:
+                queue.enqueue(node.right)
 
 
 def test_binary_search_tree():
