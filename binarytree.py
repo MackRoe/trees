@@ -1,5 +1,5 @@
 #!python
-import queue
+from queue import Queue
 
 class BinaryTreeNode(object):
 
@@ -363,13 +363,13 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Create queue to store nodes not yet traversed in level-order
-        queue = []
+        queue = Queue()
         # TODO: Enqueue given starting node
-        queue.append(start_node.data)
+        Queue.enqueue(start_node)
         # TODO: Loop until queue is empty
         while len(queue) != 0:
             # TODO: Dequeue node at front of queue
-            node = ...
+            node = Queue.dequeue()
             # TODO: Visit this node's data with given function
             ...
             # TODO: Enqueue this node's left child, if it exists
