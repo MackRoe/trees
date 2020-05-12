@@ -1,5 +1,5 @@
 #!python
-
+import queue
 
 class BinaryTreeNode(object):
 
@@ -312,7 +312,9 @@ class BinarySearchTree(object):
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Traverse pre-order without using recursion (stretch challenge)
+        # Optional TODO: Traverse pre-order without using recursion
+        # (stretch challenge)
+        pass
 
     def items_post_order(self):
         """Return a post-order list of all items in this binary search tree."""
@@ -341,7 +343,9 @@ class BinarySearchTree(object):
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Traverse post-order without using recursion (stretch challenge)
+        # Optional TODO: Traverse post-order without using recursion
+        # (stretch challenge)
+        pass
 
     def items_level_order(self):
         """Return a level-order list of all items in this binary search tree.
@@ -359,11 +363,11 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Create queue to store nodes not yet traversed in level-order
-        queue = ...
+        queue = []
         # TODO: Enqueue given starting node
-        ...
+        queue.append(start_node.data)
         # TODO: Loop until queue is empty
-        while ...:
+        while len(queue) != 0:
             # TODO: Dequeue node at front of queue
             node = ...
             # TODO: Visit this node's data with given function
