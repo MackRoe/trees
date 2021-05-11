@@ -359,22 +359,27 @@ class BinarySearchTree(object):
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Create queue to store nodes not yet traversed in level-order
+        # Create queue to store nodes not yet traversed in level-order
         queue = Queue()
-        # TODO: Enqueue given starting node
+        # Enqueue given starting node
         queue.enqueue(start_node)
-        # TODO: Loop until queue is empty
+        # TLoop until queue is empty
         while not queue.is_empty():
-            # TODO: Dequeue node at front of queue
+            # Dequeue node at front of queue
             node = queue.dequeue()
-            # TODO: Visit this node's data with given function
+            # Visit this node's data with given function
             visit(node.data)
-            # TODO: Enqueue this node's left child, if it exists
+            # Enqueue this node's left child, if it exists
             if node.left is not None:
                 queue.enqueue(node.left)
-            # TODO: Enqueue this node's right child, if it exists
+            # Enqueue this node's right child, if it exists
             if node.right is not None:
                 queue.enqueue(node.right)
+
+    def validateBST(self):
+        ''' Takes no values. Returns a value of 1 if the binary search tree
+        is valid and a value of -1 if it is not valid'''
+        pass
 
 
 def test_binary_search_tree():
